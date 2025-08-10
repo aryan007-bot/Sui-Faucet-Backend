@@ -1,4 +1,4 @@
-# ​ Eremos — Autonomous Swarm Agents for Early On-Chain Signal Detection
+# ⚡ Eremos — Autonomous Swarm Agents for Early On-Chain Signal Detection
 
 ![Eremos Banner](https://github.com/aryan007-bot/Eremos/raw/main/docs/banner2.png)
 
@@ -12,15 +12,50 @@
 
 ---
 
-> **Eremos** is a lightweight framework for deploying modular agents that monitor blockchain activity — tracking wallet clusters, mint patterns, and contract anomalies.  
-> Designed for developers who want **low-noise, high-value early signals** integrated into workflows.
+## 📖 What is Eremos?
+
+**Eremos** is a **modular framework** for deploying autonomous “swarm agents” that monitor on-chain activity across the **Solana** ecosystem.  
+
+These agents run independently, watching for:  
+- 📥 Funding flows (including CEX origins)  
+- 🔗 Bundled wallet behaviors  
+- 🚀 Deploy patterns & anomalies  
+
+The goal? **Surface early signals before they’re obvious.**  
+
+> Built as a public good, Eremos enhances transparency and insight across Solana.  
+> It’s open-source, easy to extend, and designed to plug directly into dev & analyst workflows.
+
+**Learn More:**  
+[GitHub](https://github.com/EremosCore/Eremos) | [Twitter/X](https://x.com/EremosCore) | [Website](https://www.eremos.io/)
 
 ---
 
-## ​ Table of Contents
+## 🏆 The Bounty
+
+> **Simple mission:** Fork our repo, make a smart **visual** or **structural** improvement, and open a clean pull request.
+
+**You could:**
+- Add a better README layout or structure  
+- Improve formatting in our docs  
+- Add missing badges/shields  
+- Add helpful dev tooling or cleanup  
+- Propose better repo organization or onboarding clarity  
+
+**Requirements:**
+1. ⭐ Star & 👀 Watch this repository  
+2. Fork and make your edits  
+3. Open a PR (clean, readable changes)  
+4. Submit your PR link to Superteam Earn  
+
+**Bonus points:** Active GitHub contribution history.
+
+---
+
+## 📚 Table of Contents
 
 - [✨ Features](#-features)  
-- [🛰 Meet Theron—Agent-000](#-meet-theronagent-000)  
+- [🛰 Meet Theron—Agent-000](#-meet-theronagent000)  
 - [🔍 Example Signal](#-example-signal)  
 - [📊 Signal Confidence](#-signal-confidence)  
 - [🛠 Tech Stack](#-tech-stack)  
@@ -32,7 +67,7 @@
 
 ---
 
-## ​ Meet Theron — Agent-000
+## 🛰 Meet Theron — Agent-000
 
 <p align="center">
   <img src="https://github.com/aryan007-bot/Eremos/raw/main/docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
@@ -43,7 +78,7 @@
 
 ---
 
-## ​ Features
+## ✨ Features
 
 - 🧩 **Modular Agents** — Scoped logic for detecting wallet activity, contract spawns, and anomalies  
 - 📡 **Signal Emission** — Structured signals for logging, alerting, or downstream use  
@@ -55,13 +90,13 @@
 
 ---
 
-## ​ Example Signal
+## 🔍 Example Signal
 
 ```ts
-[agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z  
-[agent-observer] → contract probing detected within 4s (pump.fun interaction traced)  
-[agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)  
-[agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy  
+[agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
+[agent-observer] → contract probing detected within 4s (pump.fun interaction traced)
+[agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)
+[agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy
 [agent-observer] → launch confidence spike (0.91) — emitting signal (elapsed: 13s)
 
 {
