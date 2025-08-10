@@ -1,62 +1,78 @@
-# Eremos
+# ⚡ Eremos — Autonomous Swarm Agents for Early On-Chain Signal Detection
 
 ![Eremos Banner](docs/banner2.png)
 
-### Autonomous swarm agents for early on-chain signal detection.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Twitter: @EremosCore](https://img.shields.io/twitter/follow/EremosCore?style=social)](https://twitter.com/EremosCore)
-[![Website](https://img.shields.io/badge/Website-Eremos.io-blue)](https://www.eremos.io/)
-
----
-
-Eremos is a lightweight, open-source framework for deploying modular agents that autonomously monitor blockchain activity. Designed for developers and analysts, it cuts through the noise to provide early, actionable signals by tracking wallet clusters, mint patterns, and contract anomalies.
-
-Our goal is to enhance transparency and insight across the Solana ecosystem as a public good.
-
----
-
 <p align="center">
-  <img src="docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
-  <em>Theron - Agent (000)</em>
+<a href="https://github.com/EremosCore/Eremos/stargazers"><img src="https://img.shields.io/github/stars/EremosCore/Eremos?style=for-the-badge" alt="Stars Badge"/></a>
+<a href="https://github.com/EremosCore/Eremos/network/members"><img src="https://img.shields.io/github/forks/EremosCore/Eremos?style=for-the-badge" alt="Forks Badge"/></a>
+<a href="https://github.com/EremosCore/Eremos/issues"><img src="https://img.shields.io/github/issues/EremosCore/Eremos?style=for-the-badge" alt="Issues Badge"/></a>
+<a href="https://github.com/EremosCore/Eremos/blob/main/LICENSE"><img src="https://img.shields.io/github/license/EremosCore/Eremos?style=for-the-badge" alt="License Badge"/></a>
+<a href="https://x.com/EremosCore"><img src="https://img.shields.io/twitter/follow/EremosCore?style=for-the-badge" alt="Twitter Badge"/></a>
 </p>
 
-### **Meet Theron - Agent-000**
-*The first deployed agent in our swarm. Passive. Pattern-sensitive. Modular and extendable by design.*
+---
 
-**Agent-001** is coming soon! [See the Teaser](https://x.com/EremosCore/status/1949154939923833239)
+> **Eremos** is a lightweight, modular framework for deploying swarm agents that monitor blockchain activity — tracking wallet clusters, mint patterns, and contract anomalies.  
+> Built for developers who want **low-noise, high-value early signals** embedded into their workflows.
 
 ---
 
-## ⚡ Core Features
-
--   **Modular Agents:** Scoped logic for detecting wallet activity, contract spawns, and anomalies.
--   **Signal Emission:** Emits structured, high-quality signals for logging, alerting, or downstream applications.
--   **Swarm Design:** Each agent operates independently, leveraging shared utilities for maximum efficiency.
--   **Extensible Core:** Easily plug in custom watchers, inference layers, or triggers to build your own agents.
--   **Minimal Output:** Logs are clean and focused, only outputting what truly matters.
--   **Launch Wallet Detection:** Agents trace freshly funded wallets (e.g., from CEXs), track their contract interactions, and flag high-confidence deploys in real time.
--   **Ghost Watcher:** Monitors long-dormant wallets that suddenly become active again, useful for tracing old dev wallets or rug setups.
+## 📚 Table of Contents
+- [✨ Features](#-features)
+- [🛰 Meet Theron](#-meet-theron--agent-000)
+- [🔍 Example Signal](#-example-signal)
+- [📊 Signal Confidence](#-signal-confidence)
+- [🛠 Tech Stack](#-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [📂 Key Folders](#-key-folders)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [🔗 Links](#-links)
 
 ---
 
-## 🎯 Example Signal
+## 🛰 Meet Theron — Agent-000
 
-See a live token deployment signal emitted by an agent in action:
+<p align="center">
+  <img src="docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
+  <em>The first deployed agent in the swarm. Passive. Pattern-sensitive. Modular and extendable by design.</em>
+</p>
 
-```json
+**Agent-001 Coming Soon** — [Teaser](https://x.com/EremosCore/status/1949154939923833239)
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🧩 **Modular Agents** | Scoped logic for detecting wallet activity, contract spawns, and anomalies |
+| 📡 **Signal Emission** | Structured signals for logging, alerting, or downstream use |
+| 🐝 **Swarm Design** | Each agent operates independently with shared utilities |
+| 🔌 **Extensible Core** | Plug in watchers, inference layers, or custom triggers |
+| 📉 **Minimal Output** | Log only what matters |
+| 🚀 **Launch Wallet Detection** | Trace freshly funded wallets from CEXs, flag high-confidence deploys |
+| 👻 **Ghost Watcher** | Detects long-dormant wallets that suddenly become active |
+
+---
+
+## 🔍 Example Signal
+
+Real-time agent detecting a live token deployment:
+
+```ts
+[agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
+[agent-observer] → contract probing detected within 4s (pump.fun interaction traced)
+[agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)
+[agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy
+[agent-observer] → launch confidence spike (0.91) - emitting signal (elapsed: 13s)
+
 {
-  "agent": "Observer",
-  "type": "launch_detected",
-  "glyph": "Δ",
-  "hash": "sig_c7f9a3d2bc",
-  "timestamp": "2025-06-12T04:41:25Z",
-  "source": "agent-observer",
-  "confidence": 0.91,
-  "details": {
-    "freshFunding": "kraken (wallet: 6Yxk...P2M8)",
-    "timeToProbe": "4s (pump.fun interaction traced)",
-    "tokenCreated": "04:41:17Z (tx: 5gW...pump)",
-    "bundleInteractions": "5 bundle-linked wallets interacted within 8s"
-  }
+  agent: "Observer",
+  type: "launch_detected",
+  glyph: "Δ",
+  hash: "sig_c7f9a3d2bc",
+  timestamp: "2025-06-12T04:41:25Z",
+  source: "agent-observer",
+  confidence: 0.91
 }
