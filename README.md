@@ -1,6 +1,6 @@
-# ⚡ Eremos — Autonomous Swarm Agents for Early On-Chain Signal Detection
+# ​ Eremos — Autonomous Swarm Agents for Early On-Chain Signal Detection
 
-![Eremos Banner](docs/banner2.png)
+![Eremos Banner](https://github.com/aryan007-bot/Eremos/raw/main/docs/banner2.png)
 
 <p align="center">
 <a href="https://github.com/EremosCore/Eremos/stargazers"><img src="https://img.shields.io/github/stars/EremosCore/Eremos?style=for-the-badge" alt="Stars Badge"/></a>
@@ -13,28 +13,29 @@
 ---
 
 > **Eremos** is a lightweight framework for deploying modular agents that monitor blockchain activity — tracking wallet clusters, mint patterns, and contract anomalies.  
-> Designed for devs who want **low-noise, high-value early signals** embedded into their workflows.
+> Designed for developers who want **low-noise, high-value early signals** integrated into workflows.
 
 ---
 
-## 📚 Table of Contents
-- [🛰 Meet Theron](#-meet-theron--agent-000)
-- [✨ Features](#-features)
-- [🔍 Example Signal](#-example-signal)
-- [📊 Signal Confidence](#-signal-confidence)
-- [🛠 Tech Stack](#-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-- [📂 Key Folders](#-key-folders)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
+## ​ Table of Contents
+
+- [✨ Features](#-features)  
+- [🛰 Meet Theron—Agent-000](#-meet-theronagent-000)  
+- [🔍 Example Signal](#-example-signal)  
+- [📊 Signal Confidence](#-signal-confidence)  
+- [🛠 Tech Stack](#-tech-stack)  
+- [🚀 Getting Started](#-getting-started)  
+- [📂 Key Folders](#-key-folders)  
+- [🤝 Contributing](#-contributing)  
+- [📜 License](#-license)  
 - [🔗 Links](#-links)
 
 ---
 
-## 🛰 Meet Theron — Agent-000
+## ​ Meet Theron — Agent-000
 
 <p align="center">
-  <img src="docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
+  <img src="https://github.com/aryan007-bot/Eremos/raw/main/docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
   <em>The first deployed agent in the swarm. Passive. Pattern-sensitive. Modular and extendable by design.</em>
 </p>
 
@@ -42,26 +43,26 @@
 
 ---
 
-## ✨ Features
+## ​ Features
 
 - 🧩 **Modular Agents** — Scoped logic for detecting wallet activity, contract spawns, and anomalies  
 - 📡 **Signal Emission** — Structured signals for logging, alerting, or downstream use  
-- 🐝 **Swarm Design** — Each agent operates independently with shared utilities  
+- 🐝 **Swarm Design** — Agents operate independently with shared utilities  
 - 🔌 **Extensible Core** — Plug in watchers, inference layers, or custom triggers  
 - 📉 **Minimal Output** — Log only what matters  
-- 🚀 **Launch Wallet Detection** — Trace freshly funded wallets (e.g., from CEXs), track their contract interactions, and flag high-confidence deploys in real time  
-- 👻 **Ghost Watcher** — Detects long-dormant wallets that suddenly become active again  
+- 🚀 **Launch Wallet Detection** — Trace freshly funded wallets (from CEXs), flag high-confidence deploys  
+- 👻 **Ghost Watcher** — Detects long-dormant wallets that suddenly reactivate
 
 ---
 
-## 🔍 Example Signal
+## ​ Example Signal
 
 ```ts
-[agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
-[agent-observer] → contract probing detected within 4s (pump.fun interaction traced)
-[agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)
-[agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy
-[agent-observer] → launch confidence spike (0.91) - emitting signal (elapsed: 13s)
+[agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z  
+[agent-observer] → contract probing detected within 4s (pump.fun interaction traced)  
+[agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)  
+[agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy  
+[agent-observer] → launch confidence spike (0.91) — emitting signal (elapsed: 13s)
 
 {
   agent: "Observer",
