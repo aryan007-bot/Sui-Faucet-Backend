@@ -1,110 +1,168 @@
-Eremos
-Autonomous swarm agents for early on-chain signal detection.
-Eremos is a lightweight, open-source framework for deploying modular agents that autonomously monitor blockchain activity. Designed for developers and analysts, it cuts through the noise to provide early, actionable signals by tracking wallet clusters, mint patterns, and contract anomalies.
+# 🗿 Eremos
 
-Our goal is to enhance transparency and insight across the Solana ecosystem as a public good. It's fully open-source, easily extendable, and designed to plug into dev or analyst workflows.
+![Eremos Banner](https://github.com/EremosCore/Eremos/raw/main/docs/banner2.png)
 
 <p align="center">
-  <img src="https://github.com/EremosCore/Eremos/raw/main/docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
-  <em>Theron - Agent (000)</em>
+  <a href="https://github.com/EremosCore/Eremos/stargazers">
+    <img src="https://img.shields.io/github/stars/EremosCore/Eremos?style=for-the-badge&color=gold" alt="Stars Badge"/>
+  </a>
+  <a href="https://github.com/EremosCore/Eremos/network/members">
+    <img src="https://img.shields.io/github/forks/EremosCore/Eremos?style=for-the-badge&color=orange" alt="Forks Badge"/>
+  </a>
+  <a href="https://github.com/EremosCore/Eremos/issues">
+    <img src="https://img.shields.io/github/issues/EremosCore/Eremos?style=for-the-badge&color=red" alt="Issues Badge"/>
+  </a>
+  <a href="https://github.com/EremosCore/Eremos/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/EremosCore/Eremos?style=for-the-badge&color=blue" alt="License Badge"/>
+  </a>
 </p>
 
-Meet Theron - Agent-000
-The first deployed agent in our swarm. Passive. Pattern-sensitive. Modular and extendable by design.
+---
 
-Agent-001 is coming soon! See the Teaser
+## 📜 What is Eremos?
 
-⚡ Core Features
-Modular Agents: Scoped logic for detecting wallet activity, contract spawns, and anomalies.
+**Eremos** is a **modular framework** for deploying autonomous “swarm agents” that monitor **on-chain activity** across the **Solana ecosystem**.  
+These agents run independently, observing funding flows, bundling behavior, deploy patterns, and more — **surfacing early signals before they’re obvious**.
 
-Signal Emission: Emits structured, high-quality signals for logging, alerting, or downstream applications.
+Built as a **public good**, Eremos aims to enhance transparency and insight across Solana. It is **fully open-source**, **easily extendable**, and designed to **plug into developer or analyst workflows**.
 
-Swarm Design: Each agent operates independently, leveraging shared utilities for maximum efficiency.
+🔗 **Learn more:** [GitHub](https://github.com/EremosCore/Eremos) | [Twitter](https://x.com/EremosCore) | [Website](https://www.eremos.io)
 
-Extensible Core: Easily plug in custom watchers, inference layers, or triggers to build your own agents.
+---
 
-Minimal Output: Logs are clean and focused, only outputting what truly matters.
+<p align="center">
+  <img src="https://github.com/EremosCore/Eremos/raw/main/docs/therontphd2.png" alt="Agent Theron" width="155"/><br/>
+  <em>Theron - Agent (000)</em>
+</p>
 
-Launch Wallet Detection: Agents trace freshly funded wallets (e.g., from CEXs), track their contract interactions, and flag high-confidence deploys in real time.
+**Meet Theron - Agent-000**  
+*The first deployed agent in the swarm. Passive. Pattern-sensitive.  
+Modular and extendable by design.*
 
-Ghost Watcher: Monitors long-dormant wallets that suddenly become active again, useful for tracing old dev wallets or rug setups.
+🆕 **Agent-001 Coming Soon:** [Teaser](https://x.com/EremosCore/status/1949154939923833239)
 
-🎯 Example Signal
-See a live token deployment signal emitted by an agent in action:
+---
 
-JSON
+## ✨ Features
+
+- **🧩 Modular Agents** – Scoped logic for detecting wallet activity, contract spawns, and anomalies  
+- **📡 Signal Emission** – Structured signals for logging, alerting, or downstream use  
+- **🐝 Swarm Design** – Each agent operates independently with shared utilities  
+- **🔌 Extensible Core** – Plug in watchers, inference layers, or custom triggers  
+- **📉 Minimal Output** – Log only what matters  
+- **🚀 Launch Wallet Detection** – Trace freshly funded wallets (e.g., from CEXs), track their contract interactions, and flag high-confidence deploys in real-time  
+- **👻 Ghost Watcher** – Detects long-dormant wallets that suddenly become active again (useful for tracing old dev wallets or rug setups)  
+
+---
+
+## 📊 Example Signal
+
+```ts
+[agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
+[agent-observer] → contract probing detected within 4s (pump.fun interaction traced)
+[agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)
+[agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy
+[agent-observer] → launch confidence spike (0.91) - emitting signal (elapsed: 13s)
 
 {
-  "agent": "Observer",
-  "type": "launch_detected",
-  "glyph": "Δ",
-  "hash": "sig_c7f9a3d2bc",
-  "timestamp": "2025-06-12T04:41:25Z",
-  "source": "agent-observer",
-  "confidence": 0.91,
-  "details": {
-    "freshFunding": "kraken (wallet: 6Yxk...P2M8)",
-    "timeToProbe": "4s (pump.fun interaction traced)",
-    "tokenCreated": "04:41:17Z (tx: 5gW...pump)",
-    "bundleInteractions": "5 bundle-linked wallets interacted within 8s"
-  }
+  agent: "Observer",
+  type: "launch_detected",
+  glyph: "Δ",
+  hash: "sig_c7f9a3d2bc",
+  timestamp: "2025-06-12T04:41:25Z",
+  source: "agent-observer",
+  confidence: 0.91
 }
-Signal Confidence: Each signal includes a confidence score (0-1), computed via agent-side scoring based on behavioral heuristics like CEX-origin funding, time between funding and deploy, and wallet linkage density.
+````
 
-🛠️ Tech Stack
-Frontend: Next.js, Tailwind CSS
+---
 
-Backend: Node.js (TypeScript-based agent runner)
+## 🎯 Signal Confidence
 
-Language: TypeScript
+Each emitted signal includes a **confidence score** (0-1) based on behavioral heuristics:
 
-Chain Layer: RPC watchers, mempool filters, native triggers
+* 🏦 CEX-origin funding (e.g., Kraken, Coinbase)
+* ⏳ Time between funding → deploy
+* 🔗 Wallet linkage density (bundled activity)
+* 📝 Token metadata validation
 
-🚀 Getting Started
-To get the swarm running, follow these simple steps:
+Confidence is computed via agent-side scoring and logged alongside the signal.
 
-Clone the repository:
+---
 
-Bash
+## 🛠 Tech Stack
 
+* **Frontend:** Next.js, Tailwind CSS
+* **Backend:** Node.js (TypeScript-based agent runner)
+* **Language:** TypeScript (typed logic across agents, utils, and infra)
+* **Chain Layer:** RPC watchers, mempool filters, native triggers
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repo
 git clone https://github.com/EremosCore/Eremos.git
 cd Eremos
-Install dependencies:
 
-Bash
-
+# Install dependencies
 npm install
-Set up your environment: Copy the example environment file and run the dev server.
 
-Bash
-
+# Set up environment variables
 cp .env.example .env.local
+
+# Run the project in development mode
 npm run dev
-📁 Repository Structure
-/agents: Agent templates and core logic
+```
 
-/utils: Shared signal and logging utilities
+---
 
-/types: TypeScript interfaces and definitions
+## 📂 Key Folders
 
-/scripts: Bootstrap and development scripts
+* `/agents` – Agent templates + logic
+* `/utils` – Shared signal/logging utilities
+* `/types` – TypeScript interfaces + definitions
+* `/scripts` – Bootstrap and dev scripts
+* `/docs` – Swarm structure, architecture, & artwork
 
-/docs: Project documentation, architecture, and official whitepaper
+---
 
-✨ Contributing
-We welcome contributions to Eremos! This is an open framework, and your input helps us build a better experience for everyone.
+## 🤝 Contributing
 
-Developers: If you're a TypeScript developer interested in agent-based systems, check out example.ts to build your own observer.
+We’re open to contributors! To participate in the bounty:
 
-Designers & Artists: If you have ideas that fit the Eremos mythos, send us a DM on Twitter.
+1. ⭐ Star and 👀 Watch the [Eremos repo](https://github.com/EremosCore/Eremos)
+2. 🍴 Fork the repo and make your visual or structural improvements (README, docs, tooling, repo organization, badges)
+3. 📬 Open a clean, descriptive Pull Request
+4. 🔗 Submit your PR link on Superteam Earn (max 1 submission)
 
-We're a small team and we love seeing active builders in the community.
+*Bonus:* A GitHub profile with a strong contribution history will increase your chances!
 
-🔗 Links
-Twitter/X: @EremosCore
+If you are experienced in TypeScript and agent systems, check `example.ts` to build your own observer.
+If you're a designer or artist with ideas fitting the Eremos mythos, reach out on Twitter: [@EremosCore](https://x.com/EremosCore).
 
-Website: Eremos.io
+---
 
-Whitepaper: v1.0 PDF
+## 📜 License
 
-Maintained with 💛 by the Eremos Core team.
+MIT © Eremos LLC
+
+---
+
+## 🔗 Useful Links
+
+* 🐦 **Twitter/X:** [@EremosCore](https://x.com/EremosCore)
+* 🌐 **Website:** [https://www.eremos.io/](https://www.eremos.io/)
+* 📄 **Whitepaper:** [v1.0 PDF](docs/whitepaper.pdf)
+
+---
+
+*Maintained by the Eremos Core team 💛*
+
+```
+
+---
+
+If you want, I can also help you add some **animated badges or GitHub Action status** badges as a bonus! Just ask.
+```
