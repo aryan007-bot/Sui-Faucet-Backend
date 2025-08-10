@@ -12,14 +12,14 @@
 
 ---
 
-> **Eremos** is a lightweight, modular framework for deploying swarm agents that monitor blockchain activity — tracking wallet clusters, mint patterns, and contract anomalies.  
-> Built for developers who want **low-noise, high-value early signals** embedded into their workflows.
+> **Eremos** is a lightweight framework for deploying modular agents that monitor blockchain activity — tracking wallet clusters, mint patterns, and contract anomalies.  
+> Designed for devs who want **low-noise, high-value early signals** embedded into their workflows.
 
 ---
 
 ## 📚 Table of Contents
-- [✨ Features](#-features)
 - [🛰 Meet Theron](#-meet-theron--agent-000)
+- [✨ Features](#-features)
 - [🔍 Example Signal](#-example-signal)
 - [📊 Signal Confidence](#-signal-confidence)
 - [🛠 Tech Stack](#-tech-stack)
@@ -44,21 +44,17 @@
 
 ## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🧩 **Modular Agents** | Scoped logic for detecting wallet activity, contract spawns, and anomalies |
-| 📡 **Signal Emission** | Structured signals for logging, alerting, or downstream use |
-| 🐝 **Swarm Design** | Each agent operates independently with shared utilities |
-| 🔌 **Extensible Core** | Plug in watchers, inference layers, or custom triggers |
-| 📉 **Minimal Output** | Log only what matters |
-| 🚀 **Launch Wallet Detection** | Trace freshly funded wallets from CEXs, flag high-confidence deploys |
-| 👻 **Ghost Watcher** | Detects long-dormant wallets that suddenly become active |
+- 🧩 **Modular Agents** — Scoped logic for detecting wallet activity, contract spawns, and anomalies  
+- 📡 **Signal Emission** — Structured signals for logging, alerting, or downstream use  
+- 🐝 **Swarm Design** — Each agent operates independently with shared utilities  
+- 🔌 **Extensible Core** — Plug in watchers, inference layers, or custom triggers  
+- 📉 **Minimal Output** — Log only what matters  
+- 🚀 **Launch Wallet Detection** — Trace freshly funded wallets (e.g., from CEXs), track their contract interactions, and flag high-confidence deploys in real time  
+- 👻 **Ghost Watcher** — Detects long-dormant wallets that suddenly become active again  
 
 ---
 
 ## 🔍 Example Signal
-
-Real-time agent detecting a live token deployment:
 
 ```ts
 [agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
